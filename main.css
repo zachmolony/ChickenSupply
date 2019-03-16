@@ -19,11 +19,14 @@ h1 {
 
 .navbar {
     z-index: 10;
-    font-family: 'Old Standard TT', serif;
     font-weight: bold;
     font-size: 4vh;
     height: 8vh;
     box-shadow: 0px 1px 10px#888888;
+}
+
+.navbar * {
+    font-family: 'Old Standard TT', serif;
 }
 
 .navbar img {
@@ -38,6 +41,17 @@ h1 {
 #map {
     height: 92vh;
     width: 100%;
+}
+
+.direction-img {
+    padding-top: 1vh;
+    padding-right: 15px;
+    height: 6vh;
+    width: auto;
+}
+
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    outline: 0;
 }
 
 #rightMenu {
@@ -66,6 +80,11 @@ h1 {
     width: 100%;
 }
 
+.adp-marker2 {
+    width:100px;
+    height:100px;
+    background-image: "assets/dallasicon.png";
+}
 .adp-agencies {
     display: none;
 }

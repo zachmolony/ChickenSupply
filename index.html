@@ -25,33 +25,38 @@
         type="text/javascript"></script>
 
     <div class="navbar navbar-expand-lg navbar-light" style="background-color:#eeb211">
-        Chicken Supply
-        <a href="#" class="navbar-brand">
-            <img class="pull-right" src="assets/trans.png" alt="">
-        </a>
+        <div class="w3-animate-right">
+            <h1>Chicken Supply</h1>
+        </div>
 
-        <button class="w3-button w3-transparent w3-xlarge w3-right" onclick="toggleMenu()">&#9776;</button>
+
+        <div class="ml-auto">
+            <a href="#" class="navbar-brand">
+                <img class="pull-right" src="assets/trans.png" alt="">
+            </a>
+            <button class="btn w3-transparent w3-xlarge shadow-none" onclick="toggleMenu()"> <img src="assets/menu.png" class="direction-img"></button>
+        </div>
 
         <div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
-                <div id="panel-container" class="card">
-                        <div id="transport-select">
-                            <select id="mode">
-                                <option value="DRIVING">Driving</option>
-                                <option value="WALKING">Walking</option>
-                                <option value="BICYCLING">Cycling</option>
-                                <option value="TRANSIT">Public Transport</option>
-                            </select>
-                        </div>
-                        <div id="instruction-panel"></div>
-                    </div>
+            <div id="panel-container" class="card">
+                <div id="transport-select">
+                    <select id="mode">
+                        <option value="DRIVING">Driving</option>
+                        <option value="WALKING">Walking</option>
+                        <option value="BICYCLING">Cycling</option>
+                        <option value="TRANSIT">Public Transport</option>
+                    </select>
+                </div>
+                <div id="instruction-panel"></div>
             </div>
+        </div>
     </div>
 
 
     <div class="map-container">
         <div id="map"></div>
     </div>
-    
+
 
 
     <!-- ERROR MESSAGE MODAL -->
