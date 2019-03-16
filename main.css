@@ -4,11 +4,13 @@
     border: 0;
     outline: 0;
     color: #292c73;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
 }
 
 html {
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 
 h1 {
@@ -16,23 +18,54 @@ h1 {
 }
 
 .navbar {
+    z-index: 10;
     font-family: 'Old Standard TT', serif;
     font-weight: bold;
     font-size: 4vh;
     height: 8vh;
+    box-shadow: 0px 1px 10px#888888;
 }
 
 .navbar img {
     max-height: 7vh;
 }
 
+.map-container {
+    top: 8vh;
+    width: 100vw;
+}
+
 #map {
     height: 92vh;
     width: 100%;
-} 
+}
+
+#rightMenu {
+    top: 8vh;
+    font-size: 2vh;
+    position: absolute;
+    left: 80vw;
+    background-color: #ffd666;
+    height: 92vh;
+    width: 20vw;
+    overflow: auto;
+    box-shadow: -1px 5px 10px#888888;
+}
 
 #transport-select {
+    background-color: #ffd666;
     text-align: center;
-    font-size: 3vh;
-    padding-left: 10px;
-  }
+    font-size: 2vh;
+    padding-top: 20px;
+}
+
+#instruction-panel {
+    background-color: #ffd666;
+    padding: 5%;
+    overflow: auto;
+    width: 100%;
+}
+
+.adp-agencies {
+    display: none;
+}
