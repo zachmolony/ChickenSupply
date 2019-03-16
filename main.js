@@ -14,7 +14,10 @@ function initMap() {
         center: DALLAS_CHICKEN
     }
     var map = new google.maps.Map(document.getElementById('map'), options);
+
     directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('instruction-panel'));
+
 
     // DALLAS MARKER
     new google.maps.Marker({
@@ -34,7 +37,7 @@ function initMap() {
 
             // GET DIRECTIONS
             getDirections(directionsService, directionsDisplay, userPos);
-            document.getElementById('mode').addEventListener('change', function () {    // listen for the user changing method
+            document.getElementById('mode').addEventListener('change', function () { // listen for the user changing method
                 getDirections(directionsService, directionsDisplay, userPos);
             });
 
@@ -88,5 +91,14 @@ function locationError(browserHasGeolocation) {
     } else {
         var mymodal = $('#allowLocation');
         mymodal.find('.modal-body').text('Please enable geolocation in your browser.');
+    }
+}
+
+function toggleMenu() {
+    var x = document.getElementById("rightMenu");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
     }
 }
