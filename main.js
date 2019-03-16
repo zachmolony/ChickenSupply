@@ -12,10 +12,11 @@ function initMap() {
     }
     var map = new google.maps.Map(document.getElementById('map'), options);
 
-    var dallas = new google.maps.Marker({
+    // DALLAS MARKER
+    new google.maps.Marker({
         position: DALLAS_CHICKEN,
         map: map,
-        //icon: 'assets/dallasicon.png'
+        icon: 'assets/dallasicon.png'
     });
 
     // =============  USER LOCATION  =============
@@ -27,9 +28,11 @@ function initMap() {
                 lng: position.coords.longitude
             };
 
-            var marker = new google.maps.Marker({
+            // USER MARKER
+            new google.maps.Marker({
                 position: userPos,
                 map: map,
+                icon: 'assets/usericon.png'
             });
 
             // ZOOM INTO ROUTE
@@ -39,11 +42,11 @@ function initMap() {
             map.fitBounds(bounds, 200);
 
         }, function () {
-            locationError(true, map.getCenter());
+            locationError(true);
         });
     } else {
         // NO GEOLOCATION
-        locationError(false, map.getCenter());
+        locationError(false);
     }
 };
 
