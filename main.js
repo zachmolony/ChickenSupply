@@ -32,8 +32,9 @@ function initMap() {
                 lng: position.coords.longitude
             };
 
+            // GET DIRECTIONS
             getDirections(directionsService, directionsDisplay, userPos);
-            document.getElementById('mode').addEventListener('change', function () {
+            document.getElementById('mode').addEventListener('change', function () {    // listen for the user changing method
                 getDirections(directionsService, directionsDisplay, userPos);
             });
 
@@ -61,19 +62,18 @@ function initMap() {
 
 // CALCULATE AND DISPLAY DIRECTIONS
 function getDirections(directionsService, directionsDisplay, userPos) {
-    var transportMethod = document.getElementById('mode').value; // fetch chosen meth
+    // fetch chosen method
+    var transportMethod = document.getElementById('mode').value;
     directionsService.route({
         origin: userPos,
         destination: DALLAS_CHICKEN,
         travelMode: google.maps.TravelMode[transportMethod]
-    }, function (response, status) {
+    }, function (response, status) { // check for 
         if (status == 'OK') {
             directionsDisplay.setDirections(response);
         } else { // if there is an error getting directions
-            $(function () { // diplay modal with message
-                var mymodal = $('#allowLocation');
-                mymodal.find('.modal-body').text('Sorry, we can\'t seem to find a way to Dallas Chicken.');
-            })
+            var mymodal = $('#allowLocation');
+            mymodal.find('.modal-body').text('Sorry, we can\'t seem to find a way to Dallas Chicken.');
             $('#allowLocation').modal('toggle');
         }
     });
