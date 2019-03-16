@@ -6,7 +6,9 @@ DALLAS_CHICKEN = {
 var map, infoWindow;
 
 function initMap() {
-    var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+    var directionsDisplay = new google.maps.DirectionsRenderer({
+        suppressMarkers: true
+    });
     var directionsService = new google.maps.DirectionsService;
 
     var options = {
@@ -59,25 +61,38 @@ function initMap() {
     }
 }
 
+// CALCULATE AND DISPLAY DIRECTIONS
 function getDirections(directionsService, directionsDisplay, userPos) {
     var transportMethod = document.getElementById('mode').value;
     directionsService.route({
         origin: userPos,
-        destination: DALLAS_CHICKEN, 
+        destination: DALLAS_CHICKEN,
         travelMode: google.maps.TravelMode[transportMethod]
-    }, function (response, status) {
+    }, function (response, status) {   // handle errors
         if (status == 'OK') {
             directionsDisplay.setDirections(response);
-        } else {
-            window.alert('Directions request failed due to ' + status);
+        } else {    // if there is an error getting directions
+            $(function () {    // diplay modal with message
+                var mymodal = $('#allowLocation');
+                mymodal.find('.modal-body').text('Sorry, we can\'t seem to find a way to Dallas Chicken.');
+            })
+            $('#allowLocation').modal('toggle');
         }
     });
 }
 
+//   LOCATION ERRORS
 function locationError(browserHasGeolocation) {
     if (browserHasGeolocation) {
+        $(function () {
+            var mymodal = $('#allowLocation');
+            mymodal.find('.modal-body').text('Please allow Chicken Supply to know your location.');
+        })
         $('#allowLocation').modal('toggle');
     } else {
-        $('#allowLocation').innerHTML = "Please enable geolocation in your browser.";
+        $(function () {
+            var mymodal = $('#allowLocation');
+            mymodal.find('.modal-body').text('Please enable geolocation in your browser.');
+        })
     }
 }
