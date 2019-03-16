@@ -15,6 +15,7 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <script src="main.js"></script>
 </head>
@@ -29,18 +30,29 @@
             <img class="pull-right" src="assets/trans.png" alt="">
         </a>
 
-        <div id="transport-select">
-                <select id="mode">
-                    <option value="DRIVING">Driving</option>
-                    <option value="WALKING">Walking</option>
-                    <option value="BICYCLING">Cycling</option>
-                    <option value="TRANSIT">Public Transport</option>
-                </select>
-            </div>
+        <button class="w3-button w3-transparent w3-xlarge w3-right" onclick="toggleMenu()">&#9776;</button>
 
+        <div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
+                <div id="panel-container" class="card">
+                        <div id="transport-select">
+                            <select id="mode">
+                                <option value="DRIVING">Driving</option>
+                                <option value="WALKING">Walking</option>
+                                <option value="BICYCLING">Cycling</option>
+                                <option value="TRANSIT">Public Transport</option>
+                            </select>
+                        </div>
+                        <div id="instruction-panel"></div>
+                    </div>
+            </div>
     </div>
 
-    <div id="map"></div>
+
+    <div class="map-container">
+        <div id="map"></div>
+    </div>
+    
+
 
     <!-- ERROR MESSAGE MODAL -->
     <div class="modal fade" id="allowLocation">
@@ -60,7 +72,7 @@
         </div>
     </div>
 
-    
+
 
 
 </body>
