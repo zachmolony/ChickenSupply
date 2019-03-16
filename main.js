@@ -3,8 +3,6 @@ DALLAS_CHICKEN = {
     lng: -0.1921
 }
 
-var map, infoWindow;
-
 function initMap() {
     var directionsDisplay = new google.maps.DirectionsRenderer({
         suppressMarkers: true
@@ -63,16 +61,16 @@ function initMap() {
 
 // CALCULATE AND DISPLAY DIRECTIONS
 function getDirections(directionsService, directionsDisplay, userPos) {
-    var transportMethod = document.getElementById('mode').value;
+    var transportMethod = document.getElementById('mode').value; // fetch chosen meth
     directionsService.route({
         origin: userPos,
         destination: DALLAS_CHICKEN,
         travelMode: google.maps.TravelMode[transportMethod]
-    }, function (response, status) {   // handle errors
+    }, function (response, status) {
         if (status == 'OK') {
             directionsDisplay.setDirections(response);
-        } else {    // if there is an error getting directions
-            $(function () {    // diplay modal with message
+        } else { // if there is an error getting directions
+            $(function () { // diplay modal with message
                 var mymodal = $('#allowLocation');
                 mymodal.find('.modal-body').text('Sorry, we can\'t seem to find a way to Dallas Chicken.');
             })
@@ -84,15 +82,11 @@ function getDirections(directionsService, directionsDisplay, userPos) {
 //   LOCATION ERRORS
 function locationError(browserHasGeolocation) {
     if (browserHasGeolocation) {
-        $(function () {
-            var mymodal = $('#allowLocation');
-            mymodal.find('.modal-body').text('Please allow Chicken Supply to know your location.');
-        })
+        var mymodal = $('#allowLocation');
+        mymodal.find('.modal-body').text('Please allow Chicken Supply to know your location.');
         $('#allowLocation').modal('toggle');
     } else {
-        $(function () {
-            var mymodal = $('#allowLocation');
-            mymodal.find('.modal-body').text('Please enable geolocation in your browser.');
-        })
+        var mymodal = $('#allowLocation');
+        mymodal.find('.modal-body').text('Please enable geolocation in your browser.');
     }
 }
