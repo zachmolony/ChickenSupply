@@ -30,3 +30,9 @@ h1 {
     height: 92vh;
     width: 100%;
 } 
+
+#transport-select {
+    text-align: center;
+    font-size: 3vh;
+    padding-left: 10px;
+  }
