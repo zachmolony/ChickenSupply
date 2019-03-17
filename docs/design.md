@@ -24,6 +24,8 @@ I decided to create some wireframes to map out the layout and general design of 
 
 <img src="../assets/wireframes/layout2.png" width="100%">
 
+I decided on the first layout as it was more visually attractive.
+
 ### Icons
 
 I created some custom markers to make the map more visually exciting.
@@ -32,11 +34,12 @@ I created some custom markers to make the map more visually exciting.
 
 **Dallas Chicken Marker** <img src="../assets/dallasicon.png">
 <img src="../assets/menu.png" width=100px style="float:right">
+
 I am using this icon "directions" made by Gabor Fulop, sourced from the Noun Project.
 
 #### Error messages
 
-I will be using modals from bootstrap to deliver error messages, which will handle the following errors:
+I will be using modals from Bootstrap to deliver error messages, which will handle the following errors:
 
 - *"Sorry, we can't seem to find a way to Dallas Chicken."*
 - *"Please allow Chicken Supply to know your location."*
