@@ -18,6 +18,7 @@ function initMap() {
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('instruction-panel'));
 
+    // TOGGLE MENU FUNCTION 
     document.getElementById('directions-button').addEventListener('click', function () {
         var x = document.getElementById("rightMenu");
         if (x.style.display === "none") {
@@ -29,12 +30,15 @@ function initMap() {
         }
     });
 
+
+    /*
     // DALLAS MARKER
     new google.maps.Marker({
         position: DALLAS_CHICKEN,
         map: map,
         icon: 'assets/dallasicon.png'
     });
+    */
 
     // =============  USER LOCATION  =============
 
@@ -58,6 +62,19 @@ function initMap() {
                 icon: 'assets/usericon.png'
             });
 
+            setTimeout(function() {
+                console.log(chicken_shops[i]);
+                for (var i = 0; i < chicken_shops.length; i++) {
+                    obj = chicken_shops[i][1];
+                    console.log(obj);
+                    new google.maps.Marker({
+                        position: {lat: chicken_shops[i][1].lng, lng: chicken_shops[i][1].lat},
+                        map: map,
+                        icon: 'assets/dallasicon.png'
+                    });
+                }
+            }, 1000);
+
             // ZOOM INTO ROUTE
             var bounds = new google.maps.LatLngBounds();
             bounds.extend(DALLAS_CHICKEN);
@@ -73,6 +90,14 @@ function initMap() {
         locationError(false);
     }
 }
+
+
+// ========= ADD MARKERS ===============
+/*
+function addMarker(coordinates) {
+    var marker = 
+}
+*/
 
 // CALCULATE AND DISPLAY DIRECTIONS
 function getDirections(directionsService, directionsDisplay, userPos) {
@@ -109,3 +134,34 @@ function locationError(browserHasGeolocation) {
 function toggleMenu(map) {
 
 }
+
+
+// ========== GET CHICKEN SHOPS FROM JSON ==========
+
+var chicken_shops = []
+var map;
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var response = JSON.parse(xhttp.responseText);
+        var shops = response.EstablishmentCollection.EstablishmentDetail;
+
+        for (var i = 0; i < shops.length; i++) {
+            if (shops[i].Geocode === "" || shops[i].BusinessType !== "Takeaway/sandwich shop") {
+                continue;
+            };
+
+            shop = {};
+            if (shops[i].BusinessName.includes("Chicken") || shops[i].BusinessName.includes("Peri")) {
+                chicken_shops.push([shops[i].BusinessName, {
+                    "lat": Number(shops[i].Geocode.Longitude),
+                    "lng": Number(shops[i].Geocode.Latitude)
+                }]);
+            };
+        }
+    }
+}
+
+xhttp.open("GET", "merton.json", true);
+xhttp.send();
