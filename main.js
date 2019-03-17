@@ -90,7 +90,7 @@ function locationError(browserHasGeolocation) {
         $('#allowLocation').modal('toggle');
     } else {
         var mymodal = $('#allowLocation');
-        mymodal.find('.modal-body').text('Please enable geolocation in your browser.');
+        mymodal.find('.modal-body').text('Geolocation is not suppourted by your browser.');
     }
 }
 
