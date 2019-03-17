@@ -62,10 +62,14 @@ function initMap() {
                 icon: 'assets/usericon.png'
             });
 
-            setTimeout(function() {
+            setTimeout(function () {
+                findClosestShop(chicken_shops, userPos);
                 for (var i = 0; i < chicken_shops.length; i++) {
                     new google.maps.Marker({
-                        position: {lat: chicken_shops[i][1].lng, lng: chicken_shops[i][1].lat},
+                        position: {
+                            lat: chicken_shops[i][1].lng,
+                            lng: chicken_shops[i][1].lat
+                        },
                         map: map,
                         icon: 'assets/dallasicon.png'
                     });
@@ -162,3 +166,21 @@ xhttp.onreadystatechange = function () {
 
 xhttp.open("GET", "merton.json", true);
 xhttp.send();
+
+function findClosestShop(chicken_shops, userPos) {
+    var dict = {};
+
+    for (var i = 0; i < chicken_shops.length; i++) {
+
+        var user = new google.maps.LatLng(userPos.lat, userPos.lng);
+        var myLatLng = new google.maps.LatLng(chicken_shops[i][1].lng, chicken_shops[i][1].lat);
+
+        dict[chicken_shops[i][0]] = google.maps.geometry.spherical.computeDistanceBetween(user, myLatLng);
+    };
+
+    console.log(dict);
+
+    // needs to return the key for the smallest value in dict
+    // pass that into the directions function
+
+}
