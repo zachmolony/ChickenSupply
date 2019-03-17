@@ -63,10 +63,7 @@ function initMap() {
             });
 
             setTimeout(function() {
-                console.log(chicken_shops[i]);
                 for (var i = 0; i < chicken_shops.length; i++) {
-                    obj = chicken_shops[i][1];
-                    console.log(obj);
                     new google.maps.Marker({
                         position: {lat: chicken_shops[i][1].lng, lng: chicken_shops[i][1].lat},
                         map: map,
