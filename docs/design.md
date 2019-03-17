@@ -14,7 +14,7 @@ I decided to use a combination of the Google colour scheme, and colours from the
 
 #### Layout and Flow design
 
-I decided to create some wireframes to map out the layout and general design of the site. I created a main layout and an alternative layout and mapped the flow of the program. 
+I decided to create some wireframes to map out the layout and general design of the site. I created a main layout and an alternative layout and mapped the flow of the program.
 
 ##### Layout 1
 
@@ -23,3 +23,25 @@ I decided to create some wireframes to map out the layout and general design of 
 ##### Layout 2
 
 <img src="../assets/wireframes/layout2.png" width="100%">
+
+### Icons
+
+I created some custom markers to make the map more visually exciting.
+
+**User Marker** <img src="../assets/usericon.png">
+
+**Dallas Chicken Marker** <img src="../assets/dallasicon.png">
+<img src="../assets/menu.png" width=100px style="float:right">
+I am using this icon "directions" made by Gabor Fulop, sourced from the Noun Project.
+
+#### Error messages
+
+I will be using modals from bootstrap to deliver error messages, which will handle the following errors:
+
+- *"Sorry, we can't seem to find a way to Dallas Chicken."*
+- *"Please allow Chicken Supply to know your location."*
+- *"Geolocation is not suppourted by your browser."*
+
+##### Example
+
+<img src="../assets/docs/modal.PNG">
