@@ -18,6 +18,16 @@ function initMap() {
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('instruction-panel'));
 
+    document.getElementById('directions-button').addEventListener('click', function () {
+        var x = document.getElementById("rightMenu");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            map.panBy(200, 0);
+        } else {
+            x.style.display = "none";
+            map.panBy(-200, 0);
+        }
+    });
 
     // DALLAS MARKER
     new google.maps.Marker({
@@ -52,6 +62,7 @@ function initMap() {
             var bounds = new google.maps.LatLngBounds();
             bounds.extend(DALLAS_CHICKEN);
             bounds.extend(userPos);
+            window.bounds = bounds; // gloablise for refitting when we open the panel
             map.fitBounds(bounds, 200);
 
         }, function () {
@@ -75,9 +86,9 @@ function getDirections(directionsService, directionsDisplay, userPos) {
         if (status == 'OK') {
             directionsDisplay.setDirections(response);
         } else { // if there is an error getting directions
-            var mymodal = $('#allowLocation');
+            var mymodal = $('#errorModal');
             mymodal.find('.modal-body').text('Sorry, we can\'t seem to find a way to Dallas Chicken.');
-            $('#allowLocation').modal('toggle');
+            $('#errorModal').modal('toggle');
         }
     });
 }
@@ -85,20 +96,16 @@ function getDirections(directionsService, directionsDisplay, userPos) {
 //   LOCATION ERRORS
 function locationError(browserHasGeolocation) {
     if (browserHasGeolocation) {
-        var mymodal = $('#allowLocation');
+        var mymodal = $('#errorModal');
         mymodal.find('.modal-body').text('Please allow Chicken Supply to know your location.');
-        $('#allowLocation').modal('toggle');
+        $('#errorModal').modal('toggle');
     } else {
-        var mymodal = $('#allowLocation');
+        var mymodal = $('#errorModal');
         mymodal.find('.modal-body').text('Geolocation is not suppourted by your browser.');
     }
 }
 
-function toggleMenu() {
-    var x = document.getElementById("rightMenu");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
+// TOGGLE DIRECTIONS PANEL
+function toggleMenu(map) {
+
 }
