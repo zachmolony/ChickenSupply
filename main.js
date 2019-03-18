@@ -3,6 +3,9 @@ DALLAS_CHICKEN = {
     lng: -0.1921
 }
 
+var chicken_shops = []
+var map;
+
 function initMap() {
     var directionsDisplay = new google.maps.DirectionsRenderer({
         suppressMarkers: true
@@ -49,10 +52,8 @@ function initMap() {
                 lng: position.coords.longitude
             };
 
-            // GET DIRECTIONS
-            getDirections(directionsService, directionsDisplay, userPos);
             document.getElementById('mode').addEventListener('change', function () { // listen for the user changing method
-                getDirections(directionsService, directionsDisplay, userPos);
+                getDirections(directionsService, directionsDisplay, userPos, findClosestShop(chicken_shops, userPos));
             });
 
             // USER MARKER
@@ -63,7 +64,10 @@ function initMap() {
             });
 
             setTimeout(function () {
-                findClosestShop(chicken_shops, userPos);
+
+                // GET DIRECTIONS TO NEAREST SHOP, needs to wait for json data
+                getDirections(directionsService, directionsDisplay, userPos, findClosestShop(chicken_shops, userPos));
+
                 for (var i = 0; i < chicken_shops.length; i++) {
                     new google.maps.Marker({
                         position: {
@@ -92,21 +96,17 @@ function initMap() {
     }
 }
 
-
-// ========= ADD MARKERS ===============
-/*
-function addMarker(coordinates) {
-    var marker = 
-}
-*/
-
 // CALCULATE AND DISPLAY DIRECTIONS
-function getDirections(directionsService, directionsDisplay, userPos) {
+function getDirections(directionsService, directionsDisplay, userPos, shopLocation) {
+    
     // fetch chosen method
     var transportMethod = document.getElementById('mode').value;
     directionsService.route({
         origin: userPos,
-        destination: DALLAS_CHICKEN,
+        destination: {
+            lat: shopLocation.lng,
+            lng: shopLocation.lat
+        },
         travelMode: google.maps.TravelMode[transportMethod]
     }, function (response, status) { // check for 
         if (status == 'OK') {
@@ -131,16 +131,7 @@ function locationError(browserHasGeolocation) {
     }
 }
 
-// TOGGLE DIRECTIONS PANEL
-function toggleMenu(map) {
-
-}
-
-
 // ========== GET CHICKEN SHOPS FROM JSON ==========
-
-var chicken_shops = []
-var map;
 
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
@@ -168,19 +159,26 @@ xhttp.open("GET", "merton.json", true);
 xhttp.send();
 
 function findClosestShop(chicken_shops, userPos) {
-    var dict = {};
 
+    // have to make proper object for this bc geometry requires it
+    var user = new google.maps.LatLng(userPos.lat, userPos.lng);
+
+    // calculate distance for each shop
     for (var i = 0; i < chicken_shops.length; i++) {
 
-        var user = new google.maps.LatLng(userPos.lat, userPos.lng);
         var myLatLng = new google.maps.LatLng(chicken_shops[i][1].lng, chicken_shops[i][1].lat);
 
-        dict[chicken_shops[i][0]] = google.maps.geometry.spherical.computeDistanceBetween(user, myLatLng);
+        chicken_shops[i].push(google.maps.geometry.spherical.computeDistanceBetween(user, myLatLng));
     };
 
-    console.log(dict);
+    // return the minimum value of the new pushed item in the sublists and return index
+    var lowest = 0;
+    for (var i = 1; i < chicken_shops.length; i++) {
+        if (chicken_shops[i][2] < chicken_shops[lowest][2]) {
+            lowest = i;
+        }
+    }
 
-    // needs to return the key for the smallest value in dict
-    // pass that into the directions function
-
+    // return coords of closest shop
+    return chicken_shops[lowest][1];
 }
