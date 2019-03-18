@@ -12,6 +12,12 @@ I chose to have my route to my favourite chicken shop, as I am good friends with
 
 I decided to use a combination of the Google colour scheme, and colours from the Dallas Chicken and Ribs logo. I am using the Google Yellow, and red and blue from Dallas. I am using bootstrap to enhance my front end, and will be including jQuery animations to make the app look more polished.
 
+#### Font
+
+I will be using the Old Standard TT font, from googlefonts.com.
+
+<img src="../assets/docs/font.png" width=500px>
+
 #### Layout and Flow design
 
 I decided to create some wireframes to map out the layout and general design of the site. I created a main layout and an alternative layout and mapped the flow of the program.
