@@ -1,4 +1,7 @@
-# Chicken Supply 🍗 <img src="assets/portraitlogo.jpg" height=200px style="float:right">
+<p align="center">
+  <img src="assets/chicken-supply.png" width=600px>
+</p>
+
 
 Chicken Supply is a web app built with the Google Maps API which allows users to find the nearest chicken shop based on their location. Shop information is based on data from the Food Standards Agency. Currently only covers chicken shops in Merton, although I plan to expand this in the future.
 
