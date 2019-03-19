@@ -28,6 +28,10 @@ What I then did was convert the file to JSON, and then searched the file with an
 - jQuery 
 - AJAX
 
+## Design 
+
+See my [Design Document](docs/design.md)
+
 ## Limitations
 
 There are some flaws with this current implementation which need addressing and which need to be changed in a London-wide implementation. The files I am reading from take far too long to query due to their size, which although does not inhibit the program, will not be suitable if I introduce another 32 data sets of similar size. 
