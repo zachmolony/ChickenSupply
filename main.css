@@ -52,7 +52,7 @@ h1 {
     outline: 0;
 }
 
-#rightMenu {
+#dirMenu {
     top: 8vh;
     font-size: 2vh;
     position: absolute;
@@ -92,7 +92,7 @@ h1 {
         width: auto;
     }
 
-    #mobileMenu {
+    #dirMenu {
         top: 60%;
         left: auto;
         right: 0;
@@ -127,7 +127,7 @@ select {
     background: url(https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/153/poultry-leg_1f357.png) 96% / 7% no-repeat #eee;
   }
 
-#instruction-panel {
+#dir-panel {
     background-color: #ffd666;
     padding: 5%;
     overflow: auto;

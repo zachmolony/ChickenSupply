@@ -19,12 +19,11 @@ function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), options);
 
     directionsDisplay.setMap(map);
-    directionsDisplay.setPanel(document.getElementById('instruction-panel'));
-    directionsDisplay.setPanel(document.getElementById('mobile-panel'));
+    directionsDisplay.setPanel(document.getElementById('dir-panel'));
 
     // TOGGLE MENU FUNCTION DESKTOP
     document.getElementById('directions-button').addEventListener('click', function () {
-        var x = document.getElementById("rightMenu");
+        var x = document.getElementById("dirMenu");
         if (x.style.display === "none") {
             x.style.display = "block";
             map.panBy(200, 0);
@@ -36,7 +35,7 @@ function initMap() {
 
     // TOGGLE MENU FUNCTION MOBILE
     document.getElementById('directions-button-mobile').addEventListener('click', function () {
-        var x = document.getElementById('mobileMenu');
+        var x = document.getElementById('dirMenu');
         if (x.style.display === "none") {
             x.style.display = "block";
             map.panBy(0, 150);
