@@ -7,7 +7,7 @@ Chicken Supply is a web app built with the Google Maps API which allows users to
 
 ## Getting Started
 
-Simply travel to the webpage located at zachmolony.github.io/howfartodallas/ and click to allow your location.
+Simply travel to the webpage located at <zachmolony.github.io/howfartodallas/> and click to allow your location.
 
 <img src="./assets/docs/screenshot.png">
 
