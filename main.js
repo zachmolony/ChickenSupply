@@ -20,8 +20,9 @@ function initMap() {
 
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('instruction-panel'));
+    directionsDisplay.setPanel(document.getElementById('mobile-panel'));
 
-    // TOGGLE MENU FUNCTION 
+    // TOGGLE MENU FUNCTION DESKTOP
     document.getElementById('directions-button').addEventListener('click', function () {
         var x = document.getElementById("rightMenu");
         if (x.style.display === "none") {
@@ -30,6 +31,18 @@ function initMap() {
         } else {
             x.style.display = "none";
             map.panBy(-200, 0);
+        }
+    });
+
+    // TOGGLE MENU FUNCTION MOBILE
+    document.getElementById('directions-button-mobile').addEventListener('click', function () {
+        var x = document.getElementById('mobileMenu');
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            map.panBy(0, 150);
+        } else {
+            x.style.display = "none";
+            map.panBy(0, -150);
         }
     });
 
