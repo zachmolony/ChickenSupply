@@ -34,5 +34,5 @@ There are some flaws with this current implementation which need addressing and 
 
 In the future I will need to write a script which can read all these files and extract the relevant data and write it to another file which the program can use, making it faster to process. This has not occured yet due to my current limited knowledge of XML manipulation, however this is something I am currently working towards. 
 
-With this, however, the issue becomes how the data will be maintained and updated. This will not be a huge issue as the data is only updated annually or so, though a solution lies in an API from The Food Standards Agency, allowing XML requests directly to their server. This would still suffer from the same if not potentially worse latency issues, and my lack of knowlege of the technology and lack of documentation on the web. 
+With this, however, the issue becomes how the data will be maintained and updated. This will not be a huge issue as the data is only updated annually or so, though a solution lies in an API from The Food Standards Agency, allowing XML requests directly to their server. This would still suffer from the same if not potentially worse latency issues, and my lack of knowlege of the technology and lack of documentation available. 
 
