@@ -4,7 +4,6 @@
     border: 0;
     outline: 0;
     color: #292c73;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
 }
 
 html {
@@ -62,6 +61,10 @@ h1 {
     width: 20vw;
     overflow: auto;
     box-shadow: -1px 5px 10px#888888;
+}
+
+#dirMenu * {
+    font-family: 'Open Sans', sans-serif;
 }
 
 #directions-button-mobile {
