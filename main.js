@@ -45,16 +45,6 @@ function initMap() {
         }
     });
 
-
-    /*
-    // DALLAS MARKER
-    new google.maps.Marker({
-        position: DALLAS_CHICKEN,
-        map: map,
-        icon: 'assets/dallasicon.png'
-    });
-    */
-
     // =============  USER LOCATION  =============
 
     if (navigator.geolocation) {
