@@ -10,7 +10,7 @@ I chose to have my route to my favourite chicken shop, as I am good friends with
 
 <img src="../assets/palette.png" alt="" width="100%">
 
-I decided to use a combination of the Google colour scheme, and colours from the Dallas Chicken and Ribs logo. I am using the Google Yellow, and red and blue from Dallas. I am using bootstrap to enhance my front end, and will be including jQuery animations to make the app look more polished.
+I decided to use a combination of the Google colour scheme, and colours from the Dallas Chicken and Ribs logo. I am using the Google Yellow, and red and blue from Dallas. I am using bootstrap to enhance my front end, and will be including jQuery animations to make the app look more polished. 
 
 #### Font
 
@@ -54,3 +54,7 @@ I will be using modals from Bootstrap to deliver error messages, which will hand
 ##### Example
 
 <img src="../assets/docs/modal.PNG">
+
+### Credit
+
+Dallas Chicken Logo: dallaschicken.co.uk
