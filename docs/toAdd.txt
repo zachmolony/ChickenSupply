@@ -1,7 +1,0 @@
-custom map
-- night mode
-- hide other shops
-
-padding to map
-
-icons for travel method choice
